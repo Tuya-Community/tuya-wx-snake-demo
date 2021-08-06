@@ -37,8 +37,6 @@ Page({
    */
   onLoad: async function(options) {
     const { device_id } = options
-    const { name, icon } = await getDeviceDetails(device_id)
-    console.log('name, icon:::', name, icon);
     // 家庭id
     const home_id = wx.getStorageSync('owner_id')
 
@@ -54,8 +52,6 @@ Page({
     instance.onError(this.onError);
 
     this.setData({
-      device_name: name,
-      icon,
       bleInstance: instance
     });
   },
