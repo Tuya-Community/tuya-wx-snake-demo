@@ -1,0 +1,73 @@
+<View class="wrap">
+  <navbar device_name="{{device_name}}" />
+  <view class="control-box">
+    <view class="container">
+      <view class="content">
+        <view class="count-box">
+          <view class="count-box-value">snake</view>
+          <!-- <view class="count-box-unit">个</view> -->
+        </view>
+        <!-- <view bindtap="sendCount1" class="count-tip">最近一次训练</view> -->
+
+        <!-- <view class="items">
+          <view class="item">
+            <view class="item-value">100</view>
+            <view class="item-label">小明</view>
+          </view>
+          <view class="item">
+            <view class="item-value">100</view>
+            <view class="item-label">小明</view>
+          </view>
+        </view> -->
+
+        <view class="mode-box">
+          <view bind:tap="move" data-direction="up" class="mode-item">
+            <view class="mode-item-left">
+              <view class="mode-item-title">上</view>
+            </view>
+          </view>
+          <view class="direction">
+            <view bind:tap="move" data-direction="left" class="mode-item">
+              <view class="mode-item-left">
+                <view class="mode-item-title">左</view>
+              </view>
+            </view>
+            <view bind:tap="move" data-direction="right" class="mode-item">
+              <view class="mode-item-left">
+                <view class="mode-item-title">右</view>
+              </view>
+            </view>
+          </view>
+          <view bind:tap="move" data-direction="down" class="mode-item">
+            <view class="mode-item-left">
+              <view class="mode-item-title">下</view>
+            </view>
+          </view>
+          <view bind:tap="connect" class="mode-item">
+            <view class="mode-item-left">
+              <view class="mode-item-title">重连蓝牙</view>
+            </view>
+          </view>
+          <view>
+            <view bind:tap="clean" class="mode-item">
+              <view class="mode-item-left">
+                <view class="mode-item-title">清屏</view>
+              </view>
+            </view>
+            <view bind:tap="init" class="mode-item">
+              <view class="mode-item-left">
+                <view class="mode-item-title">初始化</view>
+              </view>
+            </view>
+            <view bind:tap="unboundBlue" class="mode-item">
+              <view class="mode-item-left">
+                <view class="mode-item-title">设备解绑</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</View>
