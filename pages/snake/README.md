@@ -64,8 +64,6 @@ const _ble_dpCodeMap: {
   unlock_method_delete: 2
 }
 ```
-> 需要手动设置dpCode与dpid映射关系的原因：   
-蓝牙协议要求dp下发时需要下发的是dpid而不是dpcode，但目前仅存在获取设备dpcode集的接口，而没有通用接口来获取某设备的dpcode与dpid的映射关系表，因此需要调用方先手动传入这个映射关系。后续开放相应接口后，sdk内部会自行拉取这个映射关系。
 
 #### 2.5、 与设备建立连接
 
