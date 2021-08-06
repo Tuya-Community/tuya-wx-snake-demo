@@ -3,7 +3,7 @@
 
 ### 1、引入   
 ```js
-import BleService from '@tuya-wx/bluetooth-sdk'
+import BleService from ''
 ```   
 > BleService 是一个实例对象，该实例维护了下文所提到的设备实例列表与api请求对象等数据。
 
