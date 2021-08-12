@@ -3,6 +3,5 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index"
   },
-  "navigationBarTitleText": "面板列表",
-  "disableScroll": true
+  "navigationBarTitleText": "面板列表"
 }

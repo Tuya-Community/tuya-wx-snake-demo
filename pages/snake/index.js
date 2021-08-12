@@ -13,7 +13,8 @@ const BleConnectStatus = {
 const dpIdMap = {
   single_control: 101,
   all_control: 102,
-  map_set: 103
+  map_set: 103,
+  group_control: 104
 };
 
 // 注入方法
@@ -112,16 +113,17 @@ Page({
     ];
     const res = await this.data.bleInstance.sendDp(dpData);
     res.success && console.log('init success');
+    console.log('init');
   },
   // 贪吃蛇移动下发dp
   async move({ currentTarget }) {
     const { dataset: { direction } } = currentTarget;
     switch (direction) {
       case 'up':
-        // 假设向上移动时，灭掉 00 号灯，开启 04 号灯
+        // 假设向上移动时，灭掉 10 号灯，开启 20 号灯
         const res = await this.data.bleInstance.sendDp([
-          { dpCode: 'single_control', dpValue: '00000000' },
-          { dpCode: 'single_control', dpValue: '04ffff00' },
+          { dpCode: 'single_control', dpValue: '0a000000' },
+          { dpCode: 'single_control', dpValue: '14ffff00' },
         ]);
         res.success && console.log('move success');
         break;
@@ -140,5 +142,19 @@ Page({
   // 跟蓝牙设备解绑，解绑完成可以重新配网，注意，该api只能与设备断开连接，想从设备列表里干掉这个设备，需要调云端接口哦
   unboundBlue: function() {
     this.data.bleInstance.unboundBlue();
+    // this.data.bleInstance.sendDp({ dpCode: 'all_control', dpValue: '02096dd9' });
+  },
+  // 展示分数
+  // 约定：群组 0~9 用于代表个位的分数0~9；群组10~19表示十位的分数
+  // 假设要显示绿色的分数25，那么首先下发：0c00ff00，再下发：0500ff00
+  // 当然，在此之前，要先把屏幕清空一下（这里建议最好不要把灯全部关闭，全部改成某一个背景色即可）
+  async showScore() {
+    const dpData = [
+      { dpCode: 'all_control', dpValue: 'ffff00' },
+      { dpCode: 'group_control', dpValue: '0c00ff00' },
+      { dpCode: 'group_control', dpValue: '0500ff00' }
+    ];
+    const res = await this.data.bleInstance.sendDp(dpData);
+    res.success && console.log('show success');
   }
 });

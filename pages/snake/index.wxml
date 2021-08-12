@@ -1,5 +1,5 @@
 <View class="wrap">
-  <navbar device_name="{{device_name}}" />
+  <navbar device_name="{{device_name}}"/>
   <view class="control-box">
     <view class="container">
       <view class="content">
@@ -62,6 +62,11 @@
             <view bind:tap="unboundBlue" class="mode-item">
               <view class="mode-item-left">
                 <view class="mode-item-title">设备解绑</view>
+              </view>
+            </view>
+            <view bind:tap="showScore" class="mode-item">
+              <view class="mode-item-left">
+                <view class="mode-item-title">显示得分</view>
               </view>
             </view>
           </view>
